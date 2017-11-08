@@ -1,11 +1,18 @@
 import json
 from graph_tool.all import *
 from gi.repository import Gtk, Gdk
+import sys
 
-from pprint import pprint
+if len(sys.argv) <= 1:
+    print("Please input file name")
+    exit()
 
-data = open('alexnet_good_params.json','r')
-nodes = json.load(data)["nodes"]
+try:
+    data = open(sys.argv[1],'r')
+    nodes = json.load(data)["nodes"]
+except OSError:
+    print("Json Not found")
+    exit()
 
 g = Graph()
 g.add_vertex(len(nodes))
@@ -23,7 +30,6 @@ rgb = {'R':0, 'r':1, 'C':2}
 t = []
 for i in range(0,3):
     t.append( (255-base[i]-ceil[i])/len(nodes[0]['partitions']) )
-print(t)
 
 # vertex and edge properties
 cost = g.new_vertex_property("int")
