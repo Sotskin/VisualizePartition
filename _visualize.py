@@ -1,5 +1,6 @@
 import json
 from graph_tool.all import *
+from gi.repository import Gtk, Gdk
 
 from pprint import pprint
 
@@ -45,6 +46,7 @@ for i in range(0,len(nodes)):
     else:
         color[i] = 'yellow'
 
+'''
 graph_draw(g,
         vertex_text = name,
         vertex_shape = shape,
@@ -54,6 +56,7 @@ graph_draw(g,
         # output_size = (1920,1080),
         # output = "output.png"
         )
+
 
 graph_draw(g,
         vertex_text = cost,
@@ -65,4 +68,19 @@ graph_draw(g,
         # output = "output.png"
         )
 
+'''
+win = GraphWindow(g,
+        vertex_text = name,
+        vertex_shape = shape,
+        vertex_font_size = 15,
+        vertex_text_position = 0,
+        vertex_fill_color = color,
+        # output_size = (1920,1080),
+        # output = "output.png"
+        )
+
+win.connect("delete_event", Gtk.main_quit)
+
+win.show_all()
+Gtk.main()
 
