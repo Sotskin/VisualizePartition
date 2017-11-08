@@ -11,11 +11,19 @@ Scheme for data input, including the level of granularity for the communication 
 
 
 
-Use color to represent type of partition.
+**TO-DO**
 
-Use shape to distinguish tensor and operator.
+Use Size & Color to represent the cost of node: The larger the bigger 
+
+Use Shape to distinguish tensor and operator
+
+Temp: Use Circle halo color to represent the partition type (Could use color instead)
 
 
 
+GTK: 
 
+Show detailed information when mouth selected a node
+
+At somewhere, shows a label that shows correspondence between color/shape and meanings
 
