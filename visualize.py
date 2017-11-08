@@ -12,8 +12,18 @@ g.add_vertex(len(nodes))
 
 # indice dictionary to keep track of index for each vertex
 indice = {}
-shapes = ['circle','pentagon']
 
+shapes = ['circle','triangle']
+
+# Variables defined for color
+alpha = 0.9
+base = [0, 15, 0, alpha]
+ceil = [40, 20, 0]
+rgb = {'R':0, 'r':1, 'C':2}
+t = []
+for i in range(0,3):
+    t.append( (255-base[i]-ceil[i])/len(nodes[0]['partitions']) )
+print(t)
 
 # vertex and edge properties
 cost = g.new_vertex_property("int")
@@ -21,7 +31,7 @@ name = g.new_vertex_property("string")
 
 size = g.new_vertex_property("float")
 shape = g.new_vertex_property("string")
-color = g.new_vertex_property("string")
+color = g.new_vertex_property("vector<double>")
 
 #g.edge_properties["cost"]=cost
 #g.vertex_properties["name"]=name
@@ -36,7 +46,13 @@ for i in range(0,len(nodes)):
     cost[i] = node['cost']
     
     shape[i] = shapes[(int)(node['op']=='null')]
+    color[i] = base
+    for part in node['partitions']:
+        color[i][rgb[part]] += t[rgb[part]]
+    for j in range(0,3):
+        color[i][j] = color[i][j]/255
 
+    # Add edges
     for source in node["inputs"]:
         if source in indice:
             g.add_edge(indice[source],i)
@@ -44,15 +60,9 @@ for i in range(0,len(nodes)):
         else:
             print(source, "is not in indices")
 
-    if node['cost'] != 0:
-        color[i] = 'green'
-    else:
-        color[i] = 'yellow'
-
-
 graph_draw(g,
-        vertex_halo = True,        
-        vertex_halo_size = prop_to_size(cost, mi = 1.5, ma = 1.1),
+        vertex_halo = False, #True,
+        vertex_halo_size = prop_to_size(cost, mi = 1.3, ma = 1.1),
         
         vertex_text = name,
         vertex_shape = shape,
@@ -61,38 +71,7 @@ graph_draw(g,
         vertex_text_position = 0,
         vertex_fill_color = color,
         
-        edge_pen_width = 0.6
+        edge_pen_width = 1
         # output_size = (1920,1080),
         # output = "output.png"
         )
-
-'''
-graph_draw(g,
-        vertex_text = cost,
-        vertex_shape = shape,
-        vertex_font_size = 15,
-        #vertex_text_position = 0,
-        vertex_fill_color = color,
-        # output_size = (1920,1080),
-        # output = "output.png"
-        )
-
-'''
-
-'''
-pos = g.vp["pos"]
-win = GraphWindow(g, pos, geometry=(500,400),
-        vertex_text = name,
-        vertex_shape = shape,
-        vertex_font_size = 15,
-        vertex_text_position = 0,
-        vertex_fill_color = color,
-        # output_size = (1920,1080),
-        # output = "output.png"
-        )
-
-win.connect("delete_event", Gtk.main_quit)
-
-win.show_all()
-Gtk.main()
-'''
