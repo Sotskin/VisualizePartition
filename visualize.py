@@ -38,7 +38,7 @@ for i in range(0,len(nodes)):
             g.add_edge(indice[source],i)
             
         else:
-            print(sourse, "is not in indices")
+            print(source, "is not in indices")
 
     if node['cost'] != 0:
         color[i] = 'green'
