@@ -12,12 +12,14 @@ g.add_vertex(len(nodes))
 
 # indice dictionary to keep track of index for each vertex
 indice = {}
-shapes = ['circle','triangle']
+shapes = ['circle','pentagon']
 
 
 # vertex and edge properties
 cost = g.new_vertex_property("int")
 name = g.new_vertex_property("string")
+
+size = g.new_vertex_property("float")
 shape = g.new_vertex_property("string")
 color = g.new_vertex_property("string")
 
@@ -31,8 +33,9 @@ for i in range(0,len(nodes)):
     indice[node['name']] = i
     
     name[i] = node['name']
-    shape[i] = shapes[(int)(node['op']=='null')]
     cost[i] = node['cost']
+    
+    shape[i] = shapes[(int)(node['op']=='null')]
 
     for source in node["inputs"]:
         if source in indice:
@@ -46,18 +49,24 @@ for i in range(0,len(nodes)):
     else:
         color[i] = 'yellow'
 
-'''
+
 graph_draw(g,
+        vertex_halo = True,        
+        vertex_halo_size = prop_to_size(cost, mi = 1.5, ma = 1.1),
+        
         vertex_text = name,
         vertex_shape = shape,
-        vertex_font_size = 15,
+        vertex_size = prop_to_size(cost,mi = 12, ma = 25),
+        vertex_font_size = 14,
         vertex_text_position = 0,
         vertex_fill_color = color,
+        
+        edge_pen_width = 0.6
         # output_size = (1920,1080),
         # output = "output.png"
         )
 
-
+'''
 graph_draw(g,
         vertex_text = cost,
         vertex_shape = shape,
@@ -69,7 +78,10 @@ graph_draw(g,
         )
 
 '''
-win = GraphWindow(g,
+
+'''
+pos = g.vp["pos"]
+win = GraphWindow(g, pos, geometry=(500,400),
         vertex_text = name,
         vertex_shape = shape,
         vertex_font_size = 15,
@@ -83,4 +95,4 @@ win.connect("delete_event", Gtk.main_quit)
 
 win.show_all()
 Gtk.main()
-
+'''
