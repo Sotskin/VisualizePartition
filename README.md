@@ -13,11 +13,7 @@ Scheme for data input, including the level of granularity for the communication 
 
 **TO-DO**
 
-Use Size & Color to represent the cost of node: The larger the bigger 
-
-Use Shape to distinguish tensor and operator
-
-Temp: Use Circle halo color to represent the partition type (Could use color instead)
+Output as Program
 
 
 
