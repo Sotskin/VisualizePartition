@@ -1,0 +1,331 @@
+{
+    "nodes": [
+        {
+            "op": "null",
+            "cost": 0,
+            "name": "softmaxoutput0_label",
+            "inputs": [],
+            "partition": [
+                "R"
+            ]
+        },
+        {
+            "op": "null",
+            "cost": 0,
+            "name": "data",
+            "inputs": [],
+            "partition": [
+                "r"
+            ]
+        },
+        {
+            "op": "null",
+            "cost": 0,
+            "name": "fc0_weight",
+            "inputs": [],
+            "partition": [
+                "R"
+            ]
+        },
+        {
+            "op": "FullyConnected",
+            "cost": 0,
+            "name": "fc0",
+            "inputs": [
+                "data",
+                "fc0_weight"
+            ],
+            "partition": [
+                "C"
+            ]
+        },
+        {
+            "op": "Activation",
+            "cost": 0,
+            "name": "activation0",
+            "inputs": [
+                "fc0"
+            ],
+            "partition": [
+                "C"
+            ]
+        },
+        {
+            "op": "null",
+            "cost": 0,
+            "name": "fc1_weight",
+            "inputs": [],
+            "partition": [
+                "C"
+            ]
+        },
+        {
+            "op": "FullyConnected",
+            "cost": 262144,
+            "name": "fc1",
+            "inputs": [
+                "activation0",
+                "fc1_weight"
+            ],
+            "partition": [
+                "C"
+            ]
+        },
+        {
+            "op": "Activation",
+            "cost": 0,
+            "name": "activation1",
+            "inputs": [
+                "fc1"
+            ],
+            "partition": [
+                "C"
+            ]
+        },
+        {
+            "op": "null",
+            "cost": 0,
+            "name": "fc2_weight",
+            "inputs": [],
+            "partition": [
+                "C"
+            ]
+        },
+        {
+            "op": "FullyConnected",
+            "cost": 262144,
+            "name": "fc2",
+            "inputs": [
+                "activation1",
+                "fc2_weight"
+            ],
+            "partition": [
+                "C"
+            ]
+        },
+        {
+            "op": "Activation",
+            "cost": 0,
+            "name": "activation2",
+            "inputs": [
+                "fc2"
+            ],
+            "partition": [
+                "C"
+            ]
+        },
+        {
+            "op": "null",
+            "cost": 0,
+            "name": "fc3_weight",
+            "inputs": [],
+            "partition": [
+                "C"
+            ]
+        },
+        {
+            "op": "FullyConnected",
+            "cost": 262144,
+            "name": "fc3",
+            "inputs": [
+                "activation2",
+                "fc3_weight"
+            ],
+            "partition": [
+                "C"
+            ]
+        },
+        {
+            "op": "Activation",
+            "cost": 0,
+            "name": "activation3",
+            "inputs": [
+                "fc3"
+            ],
+            "partition": [
+                "C"
+            ]
+        },
+        {
+            "op": "null",
+            "cost": 0,
+            "name": "fc4_weight",
+            "inputs": [],
+            "partition": [
+                "C"
+            ]
+        },
+        {
+            "op": "FullyConnected",
+            "cost": 262144,
+            "name": "fc4",
+            "inputs": [
+                "activation3",
+                "fc4_weight"
+            ],
+            "partition": [
+                "R"
+            ]
+        },
+        {
+            "op": "Activation",
+            "cost": 0,
+            "name": "activation4",
+            "inputs": [
+                "fc4"
+            ],
+            "partition": [
+                "R"
+            ]
+        },
+        {
+            "op": "SoftmaxOutput",
+            "cost": 0,
+            "name": "softmaxoutput0",
+            "inputs": [
+                "activation4",
+                "softmaxoutput0_label"
+            ],
+            "partition": [
+                "R"
+            ]
+        },
+        {
+            "op": "_backward_SoftmaxOutput",
+            "cost": 0,
+            "name": "softmaxoutput0/backward",
+            "inputs": [
+                "softmaxoutput0_label",
+                "softmaxoutput0"
+            ],
+            "partition": [
+                "R"
+            ]
+        },
+        {
+            "op": "_backward_Activation",
+            "cost": 0,
+            "name": "activation4/backward",
+            "inputs": [
+                "softmaxoutput0/backward",
+                "activation4"
+            ],
+            "partition": [
+                "R"
+            ]
+        },
+        {
+            "op": "_backward_FullyConnected",
+            "cost": 262144,
+            "name": "fc4/backward",
+            "inputs": [
+                "activation4/backward",
+                "activation3",
+                "fc4_weight"
+            ],
+            "partition": [
+                "C"
+            ]
+        },
+        {
+            "op": "_backward_Activation",
+            "cost": 262144,
+            "name": "activation3/backward",
+            "inputs": [
+                "fc4/backward",
+                "activation3"
+            ],
+            "partition": [
+                "r"
+            ]
+        },
+        {
+            "op": "_backward_FullyConnected",
+            "cost": 0,
+            "name": "fc3/backward",
+            "inputs": [
+                "activation3/backward",
+                "activation2",
+                "fc3_weight"
+            ],
+            "partition": [
+                "C"
+            ]
+        },
+        {
+            "op": "_backward_Activation",
+            "cost": 0,
+            "name": "activation2/backward",
+            "inputs": [
+                "fc3/backward",
+                "activation2"
+            ],
+            "partition": [
+                "C"
+            ]
+        },
+        {
+            "op": "_backward_FullyConnected",
+            "cost": 262144,
+            "name": "fc2/backward",
+            "inputs": [
+                "activation2/backward",
+                "activation1",
+                "fc2_weight"
+            ],
+            "partition": [
+                "C"
+            ]
+        },
+        {
+            "op": "_backward_Activation",
+            "cost": 262144,
+            "name": "activation1/backward",
+            "inputs": [
+                "fc2/backward",
+                "activation1"
+            ],
+            "partition": [
+                "r"
+            ]
+        },
+        {
+            "op": "_backward_FullyConnected",
+            "cost": 0,
+            "name": "fc1/backward",
+            "inputs": [
+                "activation1/backward",
+                "activation0",
+                "fc1_weight"
+            ],
+            "partition": [
+                "C"
+            ]
+        },
+        {
+            "op": "_backward_Activation",
+            "cost": 0,
+            "name": "activation0/backward",
+            "inputs": [
+                "fc1/backward",
+                "activation0"
+            ],
+            "partition": [
+                "C"
+            ]
+        },
+        {
+            "op": "_backward_FullyConnected",
+            "cost": 262144,
+            "name": "fc0/backward",
+            "inputs": [
+                "activation0/backward",
+                "data",
+                "fc0_weight"
+            ],
+            "partition": [
+                "R"
+            ]
+        }
+    ]
+}

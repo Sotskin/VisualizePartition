@@ -1,0 +1,623 @@
+{
+    "nodes": [
+        {
+            "name": "softmax/label",
+            "partition": [
+                "C",
+                "r"
+            ],
+            "op": "null",
+            "cost": 0,
+            "inputs": []
+        },
+        {
+            "name": "data",
+            "partition": [
+                "R",
+                "r"
+            ],
+            "op": "null",
+            "cost": 0,
+            "inputs": []
+        },
+        {
+            "name": "convolution0/weight",
+            "partition": [
+                "r",
+                "R"
+            ],
+            "op": "null",
+            "cost": 0,
+            "inputs": []
+        },
+        {
+            "name": "convolution0",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "Convolution",
+            "cost": 46464,
+            "inputs": [
+                "data",
+                "convolution0/weight"
+            ]
+        },
+        {
+            "name": "activation0",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "Activation",
+            "cost": 0,
+            "inputs": [
+                "convolution0"
+            ]
+        },
+        {
+            "name": "pooling0",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "Pooling",
+            "cost": 0,
+            "inputs": [
+                "activation0"
+            ]
+        },
+        {
+            "name": "convolution1/weight",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "null",
+            "cost": 0,
+            "inputs": []
+        },
+        {
+            "name": "convolution1",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "Convolution",
+            "cost": 921600,
+            "inputs": [
+                "pooling0",
+                "convolution1/weight"
+            ]
+        },
+        {
+            "name": "activation1",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "Activation",
+            "cost": 0,
+            "inputs": [
+                "convolution1"
+            ]
+        },
+        {
+            "name": "pooling1",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "Pooling",
+            "cost": 0,
+            "inputs": [
+                "activation1"
+            ]
+        },
+        {
+            "name": "convolution2/weight",
+            "partition": [
+                "C",
+                "C"
+            ],
+            "op": "null",
+            "cost": 0,
+            "inputs": []
+        },
+        {
+            "name": "convolution2",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "Convolution",
+            "cost": 1990656,
+            "inputs": [
+                "pooling1",
+                "convolution2/weight"
+            ]
+        },
+        {
+            "name": "activation2",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "Activation",
+            "cost": 0,
+            "inputs": [
+                "convolution2"
+            ]
+        },
+        {
+            "name": "convolution3/weight",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "null",
+            "cost": 0,
+            "inputs": []
+        },
+        {
+            "name": "convolution3",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "Convolution",
+            "cost": 2654208,
+            "inputs": [
+                "activation2",
+                "convolution3/weight"
+            ]
+        },
+        {
+            "name": "activation3",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "Activation",
+            "cost": 0,
+            "inputs": [
+                "convolution3"
+            ]
+        },
+        {
+            "name": "convolution4/weight",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "null",
+            "cost": 0,
+            "inputs": []
+        },
+        {
+            "name": "convolution4",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "Convolution",
+            "cost": 1769472,
+            "inputs": [
+                "activation3",
+                "convolution4/weight"
+            ]
+        },
+        {
+            "name": "activation4",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "Activation",
+            "cost": 0,
+            "inputs": [
+                "convolution4"
+            ]
+        },
+        {
+            "name": "pooling2",
+            "partition": [
+                "R",
+                "r"
+            ],
+            "op": "Pooling",
+            "cost": 1179648,
+            "inputs": [
+                "activation4"
+            ]
+        },
+        {
+            "name": "flatten0",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "Flatten",
+            "cost": 0,
+            "inputs": [
+                "pooling2"
+            ]
+        },
+        {
+            "name": "fullyconnected0/weight",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "null",
+            "cost": 0,
+            "inputs": []
+        },
+        {
+            "name": "fullyconnected0",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "FullyConnected",
+            "cost": 3932160,
+            "inputs": [
+                "flatten0",
+                "fullyconnected0/weight"
+            ]
+        },
+        {
+            "name": "activation5",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "Activation",
+            "cost": 0,
+            "inputs": [
+                "fullyconnected0"
+            ]
+        },
+        {
+            "name": "fullyconnected1/weight",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "null",
+            "cost": 0,
+            "inputs": []
+        },
+        {
+            "name": "fullyconnected1",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "FullyConnected",
+            "cost": 1966080,
+            "inputs": [
+                "activation5",
+                "fullyconnected1/weight"
+            ]
+        },
+        {
+            "name": "activation6",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "Activation",
+            "cost": 0,
+            "inputs": [
+                "fullyconnected1"
+            ]
+        },
+        {
+            "name": "fullyconnected2/weight",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "null",
+            "cost": 0,
+            "inputs": []
+        },
+        {
+            "name": "fullyconnected2",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "FullyConnected",
+            "cost": 1671168,
+            "inputs": [
+                "activation6",
+                "fullyconnected2/weight"
+            ]
+        },
+        {
+            "name": "softmax",
+            "partition": [
+                "R",
+                "r"
+            ],
+            "op": "SoftmaxOutput",
+            "cost": 131072,
+            "inputs": [
+                "fullyconnected2",
+                "softmax/label"
+            ]
+        },
+        {
+            "name": "softmax/backward",
+            "partition": [
+                "R",
+                "r"
+            ],
+            "op": "_backward_SoftmaxOutput",
+            "cost": 131072,
+            "inputs": [
+                "softmax/label",
+                "softmax"
+            ]
+        },
+        {
+            "name": "fullyconnected2/backward",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "_backward_FullyConnected",
+            "cost": 3211264,
+            "inputs": [
+                "softmax/backward",
+                "activation6",
+                "fullyconnected2/weight"
+            ]
+        },
+        {
+            "name": "activation6/backward",
+            "partition": [
+                "R",
+                "r"
+            ],
+            "op": "_backward_Activation",
+            "cost": 524288,
+            "inputs": [
+                "fullyconnected2/backward",
+                "activation6"
+            ]
+        },
+        {
+            "name": "fullyconnected1/backward",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "_backward_FullyConnected",
+            "cost": 3407872,
+            "inputs": [
+                "activation6/backward",
+                "activation5",
+                "fullyconnected1/weight"
+            ]
+        },
+        {
+            "name": "activation5/backward",
+            "partition": [
+                "R",
+                "r"
+            ],
+            "op": "_backward_Activation",
+            "cost": 524288,
+            "inputs": [
+                "fullyconnected1/backward",
+                "activation5"
+            ]
+        },
+        {
+            "name": "fullyconnected0/backward",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "_backward_FullyConnected",
+            "cost": 7340032,
+            "inputs": [
+                "activation5/backward",
+                "flatten0",
+                "fullyconnected0/weight"
+            ]
+        },
+        {
+            "name": "flatten0_backward",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "_backward_copy",
+            "cost": 0,
+            "inputs": [
+                "fullyconnected0/backward"
+            ]
+        },
+        {
+            "name": "pooling2/backward",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "_backward_Pooling",
+            "cost": 0,
+            "inputs": [
+                "flatten0_backward",
+                "activation4",
+                "pooling2"
+            ]
+        },
+        {
+            "name": "activation4/backward",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "_backward_Activation",
+            "cost": 0,
+            "inputs": [
+                "pooling2/backward",
+                "activation4"
+            ]
+        },
+        {
+            "name": "convolution4/backward",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "_backward_Convolution",
+            "cost": 3538944,
+            "inputs": [
+                "activation4/backward",
+                "activation3",
+                "convolution4/weight"
+            ]
+        },
+        {
+            "name": "activation3/backward",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "_backward_Activation",
+            "cost": 0,
+            "inputs": [
+                "convolution4/backward",
+                "activation3"
+            ]
+        },
+        {
+            "name": "convolution3/backward",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "_backward_Convolution",
+            "cost": 5308416,
+            "inputs": [
+                "activation3/backward",
+                "activation2",
+                "convolution3/weight"
+            ]
+        },
+        {
+            "name": "activation2/backward",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "_backward_Activation",
+            "cost": 0,
+            "inputs": [
+                "convolution3/backward",
+                "activation2"
+            ]
+        },
+        {
+            "name": "convolution2/backward",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "_backward_Convolution",
+            "cost": 3981312,
+            "inputs": [
+                "activation2/backward",
+                "pooling1",
+                "convolution2/weight"
+            ]
+        },
+        {
+            "name": "pooling1/backward",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "_backward_Pooling",
+            "cost": 0,
+            "inputs": [
+                "convolution2/backward",
+                "activation1",
+                "pooling1"
+            ]
+        },
+        {
+            "name": "activation1/backward",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "_backward_Activation",
+            "cost": 0,
+            "inputs": [
+                "pooling1/backward",
+                "activation1"
+            ]
+        },
+        {
+            "name": "convolution1/backward",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "_backward_Convolution",
+            "cost": 1843200,
+            "inputs": [
+                "activation1/backward",
+                "pooling0",
+                "convolution1/weight"
+            ]
+        },
+        {
+            "name": "pooling0/backward",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "_backward_Pooling",
+            "cost": 0,
+            "inputs": [
+                "convolution1/backward",
+                "activation0",
+                "pooling0"
+            ]
+        },
+        {
+            "name": "activation0/backward",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "_backward_Activation",
+            "cost": 0,
+            "inputs": [
+                "pooling0/backward",
+                "activation0"
+            ]
+        },
+        {
+            "name": "convolution0/backward",
+            "partition": [
+                "R",
+                "R"
+            ],
+            "op": "_backward_Convolution",
+            "cost": 185856,
+            "inputs": [
+                "activation0/backward",
+                "data",
+                "convolution0/weight"
+            ]
+        }
+    ]
+}
