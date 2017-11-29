@@ -1,0 +1,3662 @@
+{
+    "nodes": [
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "softmax/label",
+            "op": "null"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "r"
+            ],
+            "name": "data",
+            "op": "null"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "conv0/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "data",
+                "conv0/weight"
+            ],
+            "cost": 9408,
+            "partition": [
+                "R"
+            ],
+            "name": "conv01",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "conv01"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "relu0",
+            "op": "Activation"
+        },
+        {
+            "inputs": [
+                "relu0"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "pooling0",
+            "op": "Pooling"
+        },
+        {
+            "inputs": [
+                "pooling0"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit1_relu1",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "r"
+            ],
+            "name": "stage1_unit1_conv1/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage1_unit1_relu1",
+                "stage1_unit1_conv1/weight"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit1_conv11",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage1_unit1_conv11"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit1_relu2",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "r"
+            ],
+            "name": "stage1_unit1_conv2/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage1_unit1_relu2",
+                "stage1_unit1_conv2/weight"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit1_conv21",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage1_unit1_conv21"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit1_relu3",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit1_conv3/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage1_unit1_relu3",
+                "stage1_unit1_conv3/weight"
+            ],
+            "cost": 16384,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit1_conv31",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "r"
+            ],
+            "name": "stage1_unit1_sc/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage1_unit1_relu1",
+                "stage1_unit1_sc/weight"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit1_sc1",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage1_unit1_conv31",
+                "stage1_unit1_sc1"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus0",
+            "op": "elemwise_add"
+        },
+        {
+            "inputs": [
+                "_plus0"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit2_relu1",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "r"
+            ],
+            "name": "stage1_unit2_conv1/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage1_unit2_relu1",
+                "stage1_unit2_conv1/weight"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit2_conv11",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage1_unit2_conv11"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit2_relu2",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit2_conv2/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage1_unit2_relu2",
+                "stage1_unit2_conv2/weight"
+            ],
+            "cost": 36864,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit2_conv21",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage1_unit2_conv21"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit2_relu3",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit2_conv3/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage1_unit2_relu3",
+                "stage1_unit2_conv3/weight"
+            ],
+            "cost": 16384,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit2_conv31",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage1_unit2_conv31",
+                "_plus0"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus1",
+            "op": "elemwise_add"
+        },
+        {
+            "inputs": [
+                "_plus1"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit3_relu1",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit3_conv1/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage1_unit3_relu1",
+                "stage1_unit3_conv1/weight"
+            ],
+            "cost": 16384,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit3_conv11",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage1_unit3_conv11"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit3_relu2",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit3_conv2/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage1_unit3_relu2",
+                "stage1_unit3_conv2/weight"
+            ],
+            "cost": 36864,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit3_conv21",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage1_unit3_conv21"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit3_relu3",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit3_conv3/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage1_unit3_relu3",
+                "stage1_unit3_conv3/weight"
+            ],
+            "cost": 16384,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit3_conv31",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage1_unit3_conv31",
+                "_plus1"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus2",
+            "op": "elemwise_add"
+        },
+        {
+            "inputs": [
+                "_plus2"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit1_relu1",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit1_conv1/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage2_unit1_relu1",
+                "stage2_unit1_conv1/weight"
+            ],
+            "cost": 32768,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit1_conv11",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage2_unit1_conv11"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit1_relu2",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit1_conv2/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage2_unit1_relu2",
+                "stage2_unit1_conv2/weight"
+            ],
+            "cost": 147456,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit1_conv21",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage2_unit1_conv21"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit1_relu3",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit1_conv3/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage2_unit1_relu3",
+                "stage2_unit1_conv3/weight"
+            ],
+            "cost": 65536,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit1_conv31",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit1_sc/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage2_unit1_relu1",
+                "stage2_unit1_sc/weight"
+            ],
+            "cost": 131072,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit1_sc1",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage2_unit1_conv31",
+                "stage2_unit1_sc1"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus3",
+            "op": "elemwise_add"
+        },
+        {
+            "inputs": [
+                "_plus3"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit2_relu1",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit2_conv1/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage2_unit2_relu1",
+                "stage2_unit2_conv1/weight"
+            ],
+            "cost": 65536,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit2_conv11",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage2_unit2_conv11"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit2_relu2",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit2_conv2/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage2_unit2_relu2",
+                "stage2_unit2_conv2/weight"
+            ],
+            "cost": 147456,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit2_conv21",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage2_unit2_conv21"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit2_relu3",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit2_conv3/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage2_unit2_relu3",
+                "stage2_unit2_conv3/weight"
+            ],
+            "cost": 65536,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit2_conv31",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage2_unit2_conv31",
+                "_plus3"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus4",
+            "op": "elemwise_add"
+        },
+        {
+            "inputs": [
+                "_plus4"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit3_relu1",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit3_conv1/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage2_unit3_relu1",
+                "stage2_unit3_conv1/weight"
+            ],
+            "cost": 65536,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit3_conv11",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage2_unit3_conv11"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit3_relu2",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit3_conv2/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage2_unit3_relu2",
+                "stage2_unit3_conv2/weight"
+            ],
+            "cost": 147456,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit3_conv21",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage2_unit3_conv21"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit3_relu3",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit3_conv3/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage2_unit3_relu3",
+                "stage2_unit3_conv3/weight"
+            ],
+            "cost": 65536,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit3_conv31",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage2_unit3_conv31",
+                "_plus4"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus5",
+            "op": "elemwise_add"
+        },
+        {
+            "inputs": [
+                "_plus5"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit4_relu1",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit4_conv1/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage2_unit4_relu1",
+                "stage2_unit4_conv1/weight"
+            ],
+            "cost": 65536,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit4_conv11",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage2_unit4_conv11"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit4_relu2",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit4_conv2/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage2_unit4_relu2",
+                "stage2_unit4_conv2/weight"
+            ],
+            "cost": 147456,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit4_conv21",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage2_unit4_conv21"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit4_relu3",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit4_conv3/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage2_unit4_relu3",
+                "stage2_unit4_conv3/weight"
+            ],
+            "cost": 65536,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit4_conv31",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage2_unit4_conv31",
+                "_plus5"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus6",
+            "op": "elemwise_add"
+        },
+        {
+            "inputs": [
+                "_plus6"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit1_relu1",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit1_conv1/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage3_unit1_relu1",
+                "stage3_unit1_conv1/weight"
+            ],
+            "cost": 131072,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit1_conv11",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit1_conv11"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit1_relu2",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit1_conv2/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage3_unit1_relu2",
+                "stage3_unit1_conv2/weight"
+            ],
+            "cost": 589824,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit1_conv21",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit1_conv21"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit1_relu3",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit1_conv3/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage3_unit1_relu3",
+                "stage3_unit1_conv3/weight"
+            ],
+            "cost": 262144,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit1_conv31",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit1_sc/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage3_unit1_relu1",
+                "stage3_unit1_sc/weight"
+            ],
+            "cost": 524288,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit1_sc1",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit1_conv31",
+                "stage3_unit1_sc1"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus7",
+            "op": "elemwise_add"
+        },
+        {
+            "inputs": [
+                "_plus7"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit2_relu1",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit2_conv1/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage3_unit2_relu1",
+                "stage3_unit2_conv1/weight"
+            ],
+            "cost": 262144,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit2_conv11",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit2_conv11"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit2_relu2",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit2_conv2/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage3_unit2_relu2",
+                "stage3_unit2_conv2/weight"
+            ],
+            "cost": 589824,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit2_conv21",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit2_conv21"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit2_relu3",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit2_conv3/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage3_unit2_relu3",
+                "stage3_unit2_conv3/weight"
+            ],
+            "cost": 262144,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit2_conv31",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit2_conv31",
+                "_plus7"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus8",
+            "op": "elemwise_add"
+        },
+        {
+            "inputs": [
+                "_plus8"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit3_relu1",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit3_conv1/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage3_unit3_relu1",
+                "stage3_unit3_conv1/weight"
+            ],
+            "cost": 262144,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit3_conv11",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit3_conv11"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit3_relu2",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit3_conv2/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage3_unit3_relu2",
+                "stage3_unit3_conv2/weight"
+            ],
+            "cost": 589824,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit3_conv21",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit3_conv21"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit3_relu3",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit3_conv3/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage3_unit3_relu3",
+                "stage3_unit3_conv3/weight"
+            ],
+            "cost": 262144,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit3_conv31",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit3_conv31",
+                "_plus8"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus9",
+            "op": "elemwise_add"
+        },
+        {
+            "inputs": [
+                "_plus9"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit4_relu1",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit4_conv1/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage3_unit4_relu1",
+                "stage3_unit4_conv1/weight"
+            ],
+            "cost": 262144,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit4_conv11",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit4_conv11"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit4_relu2",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit4_conv2/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage3_unit4_relu2",
+                "stage3_unit4_conv2/weight"
+            ],
+            "cost": 589824,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit4_conv21",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit4_conv21"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit4_relu3",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit4_conv3/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage3_unit4_relu3",
+                "stage3_unit4_conv3/weight"
+            ],
+            "cost": 262144,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit4_conv31",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit4_conv31",
+                "_plus9"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus10",
+            "op": "elemwise_add"
+        },
+        {
+            "inputs": [
+                "_plus10"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit5_relu1",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit5_conv1/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage3_unit5_relu1",
+                "stage3_unit5_conv1/weight"
+            ],
+            "cost": 262144,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit5_conv11",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit5_conv11"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit5_relu2",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit5_conv2/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage3_unit5_relu2",
+                "stage3_unit5_conv2/weight"
+            ],
+            "cost": 589824,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit5_conv21",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit5_conv21"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit5_relu3",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit5_conv3/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage3_unit5_relu3",
+                "stage3_unit5_conv3/weight"
+            ],
+            "cost": 262144,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit5_conv31",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit5_conv31",
+                "_plus10"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus11",
+            "op": "elemwise_add"
+        },
+        {
+            "inputs": [
+                "_plus11"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit6_relu1",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit6_conv1/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage3_unit6_relu1",
+                "stage3_unit6_conv1/weight"
+            ],
+            "cost": 262144,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit6_conv11",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit6_conv11"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit6_relu2",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit6_conv2/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage3_unit6_relu2",
+                "stage3_unit6_conv2/weight"
+            ],
+            "cost": 589824,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit6_conv21",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit6_conv21"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit6_relu3",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit6_conv3/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage3_unit6_relu3",
+                "stage3_unit6_conv3/weight"
+            ],
+            "cost": 262144,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit6_conv31",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit6_conv31",
+                "_plus11"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus12",
+            "op": "elemwise_add"
+        },
+        {
+            "inputs": [
+                "_plus12"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit1_relu1",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit1_conv1/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage4_unit1_relu1",
+                "stage4_unit1_conv1/weight"
+            ],
+            "cost": 524288,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit1_conv11",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage4_unit1_conv11"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit1_relu2",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit1_conv2/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage4_unit1_relu2",
+                "stage4_unit1_conv2/weight"
+            ],
+            "cost": 2359296,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit1_conv21",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage4_unit1_conv21"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit1_relu3",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit1_conv3/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage4_unit1_relu3",
+                "stage4_unit1_conv3/weight"
+            ],
+            "cost": 1048576,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit1_conv31",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit1_sc/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage4_unit1_relu1",
+                "stage4_unit1_sc/weight"
+            ],
+            "cost": 2097152,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit1_sc1",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage4_unit1_conv31",
+                "stage4_unit1_sc1"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus13",
+            "op": "elemwise_add"
+        },
+        {
+            "inputs": [
+                "_plus13"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit2_relu1",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit2_conv1/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage4_unit2_relu1",
+                "stage4_unit2_conv1/weight"
+            ],
+            "cost": 1048576,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit2_conv11",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage4_unit2_conv11"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit2_relu2",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit2_conv2/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage4_unit2_relu2",
+                "stage4_unit2_conv2/weight"
+            ],
+            "cost": 2359296,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit2_conv21",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage4_unit2_conv21"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit2_relu3",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit2_conv3/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage4_unit2_relu3",
+                "stage4_unit2_conv3/weight"
+            ],
+            "cost": 1048576,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit2_conv31",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage4_unit2_conv31",
+                "_plus13"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus14",
+            "op": "elemwise_add"
+        },
+        {
+            "inputs": [
+                "_plus14"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit3_relu1",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit3_conv1/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage4_unit3_relu1",
+                "stage4_unit3_conv1/weight"
+            ],
+            "cost": 1048576,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit3_conv11",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage4_unit3_conv11"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit3_relu2",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit3_conv2/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage4_unit3_relu2",
+                "stage4_unit3_conv2/weight"
+            ],
+            "cost": 2359296,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit3_conv21",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage4_unit3_conv21"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit3_relu3",
+            "op": "Activation"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit3_conv3/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "stage4_unit3_relu3",
+                "stage4_unit3_conv3/weight"
+            ],
+            "cost": 1048576,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit3_conv31",
+            "op": "Convolution"
+        },
+        {
+            "inputs": [
+                "stage4_unit3_conv31",
+                "_plus14"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus15",
+            "op": "elemwise_add"
+        },
+        {
+            "inputs": [
+                "_plus15"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "relu1",
+            "op": "Activation"
+        },
+        {
+            "inputs": [
+                "relu1"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "pool1",
+            "op": "Pooling"
+        },
+        {
+            "inputs": [
+                "pool1"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "flatten0",
+            "op": "Flatten"
+        },
+        {
+            "inputs": [],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "fc1/weight",
+            "op": "null"
+        },
+        {
+            "inputs": [
+                "flatten0",
+                "fc1/weight"
+            ],
+            "cost": 652288,
+            "partition": [
+                "R"
+            ],
+            "name": "fc11",
+            "op": "FullyConnected"
+        },
+        {
+            "inputs": [
+                "fc11",
+                "softmax/label"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "softmax1",
+            "op": "SoftmaxOutput"
+        },
+        {
+            "inputs": [
+                "softmax/label",
+                "softmax1"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "softmax/backward",
+            "op": "_backward_SoftmaxOutput"
+        },
+        {
+            "inputs": [
+                "softmax/backward",
+                "flatten0",
+                "fc1/weight"
+            ],
+            "cost": 1176576,
+            "partition": [
+                "R"
+            ],
+            "name": "fc1/backward",
+            "op": "_backward_FullyConnected"
+        },
+        {
+            "inputs": [
+                "fc1/backward"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "flatten0_backward",
+            "op": "_backward_copy"
+        },
+        {
+            "inputs": [
+                "flatten0_backward",
+                "relu1",
+                "pool1"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "pool1/backward",
+            "op": "_backward_Pooling"
+        },
+        {
+            "inputs": [
+                "pool1/backward",
+                "relu1"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "relu1/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "relu1/backward"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus15_backward",
+            "op": "_backward_add"
+        },
+        {
+            "inputs": [
+                "_plus15_backward",
+                "stage4_unit3_relu3",
+                "stage4_unit3_conv3/weight"
+            ],
+            "cost": 2097152,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit3_conv3/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage4_unit3_conv3/backward",
+                "stage4_unit3_relu3"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit3_relu3/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage4_unit3_relu3/backward",
+                "stage4_unit3_relu2",
+                "stage4_unit3_conv2/weight"
+            ],
+            "cost": 4718592,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit3_conv2/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage4_unit3_conv2/backward",
+                "stage4_unit3_relu2"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit3_relu2/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage4_unit3_relu2/backward",
+                "stage4_unit3_relu1",
+                "stage4_unit3_conv1/weight"
+            ],
+            "cost": 2097152,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit3_conv1/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage4_unit3_conv1/backward",
+                "stage4_unit3_relu1"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit3_relu1/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "_plus15_backward",
+                "stage4_unit3_relu1/backward"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "sum_grad",
+            "op": "ElementWiseSum"
+        },
+        {
+            "inputs": [
+                "sum_grad"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus14_backward",
+            "op": "_backward_add"
+        },
+        {
+            "inputs": [
+                "_plus14_backward",
+                "stage4_unit2_relu3",
+                "stage4_unit2_conv3/weight"
+            ],
+            "cost": 2097152,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit2_conv3/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage4_unit2_conv3/backward",
+                "stage4_unit2_relu3"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit2_relu3/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage4_unit2_relu3/backward",
+                "stage4_unit2_relu2",
+                "stage4_unit2_conv2/weight"
+            ],
+            "cost": 4718592,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit2_conv2/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage4_unit2_conv2/backward",
+                "stage4_unit2_relu2"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit2_relu2/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage4_unit2_relu2/backward",
+                "stage4_unit2_relu1",
+                "stage4_unit2_conv1/weight"
+            ],
+            "cost": 2097152,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit2_conv1/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage4_unit2_conv1/backward",
+                "stage4_unit2_relu1"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit2_relu1/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "_plus14_backward",
+                "stage4_unit2_relu1/backward"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "sum_grad1",
+            "op": "ElementWiseSum"
+        },
+        {
+            "inputs": [
+                "sum_grad1"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus13_backward",
+            "op": "_backward_add"
+        },
+        {
+            "inputs": [
+                "_plus13_backward",
+                "stage4_unit1_relu1",
+                "stage4_unit1_sc/weight"
+            ],
+            "cost": 4194304,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit1_sc/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "_plus13_backward",
+                "stage4_unit1_relu3",
+                "stage4_unit1_conv3/weight"
+            ],
+            "cost": 2097152,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit1_conv3/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage4_unit1_conv3/backward",
+                "stage4_unit1_relu3"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit1_relu3/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage4_unit1_relu3/backward",
+                "stage4_unit1_relu2",
+                "stage4_unit1_conv2/weight"
+            ],
+            "cost": 4718592,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit1_conv2/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage4_unit1_conv2/backward",
+                "stage4_unit1_relu2"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit1_relu2/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage4_unit1_relu2/backward",
+                "stage4_unit1_relu1",
+                "stage4_unit1_conv1/weight"
+            ],
+            "cost": 1048576,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit1_conv1/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage4_unit1_sc/backward",
+                "stage4_unit1_conv1/backward"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "sum_grad2",
+            "op": "ElementWiseSum"
+        },
+        {
+            "inputs": [
+                "sum_grad2",
+                "stage4_unit1_relu1"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage4_unit1_relu1/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage4_unit1_relu1/backward"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus12_backward",
+            "op": "_backward_add"
+        },
+        {
+            "inputs": [
+                "_plus12_backward",
+                "stage3_unit6_relu3",
+                "stage3_unit6_conv3/weight"
+            ],
+            "cost": 524288,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit6_conv3/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit6_conv3/backward",
+                "stage3_unit6_relu3"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit6_relu3/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage3_unit6_relu3/backward",
+                "stage3_unit6_relu2",
+                "stage3_unit6_conv2/weight"
+            ],
+            "cost": 1179648,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit6_conv2/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit6_conv2/backward",
+                "stage3_unit6_relu2"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit6_relu2/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage3_unit6_relu2/backward",
+                "stage3_unit6_relu1",
+                "stage3_unit6_conv1/weight"
+            ],
+            "cost": 524288,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit6_conv1/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit6_conv1/backward",
+                "stage3_unit6_relu1"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit6_relu1/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "_plus12_backward",
+                "stage3_unit6_relu1/backward"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "sum_grad3",
+            "op": "ElementWiseSum"
+        },
+        {
+            "inputs": [
+                "sum_grad3"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus11_backward",
+            "op": "_backward_add"
+        },
+        {
+            "inputs": [
+                "_plus11_backward",
+                "stage3_unit5_relu3",
+                "stage3_unit5_conv3/weight"
+            ],
+            "cost": 524288,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit5_conv3/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit5_conv3/backward",
+                "stage3_unit5_relu3"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit5_relu3/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage3_unit5_relu3/backward",
+                "stage3_unit5_relu2",
+                "stage3_unit5_conv2/weight"
+            ],
+            "cost": 1179648,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit5_conv2/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit5_conv2/backward",
+                "stage3_unit5_relu2"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit5_relu2/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage3_unit5_relu2/backward",
+                "stage3_unit5_relu1",
+                "stage3_unit5_conv1/weight"
+            ],
+            "cost": 524288,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit5_conv1/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit5_conv1/backward",
+                "stage3_unit5_relu1"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit5_relu1/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "_plus11_backward",
+                "stage3_unit5_relu1/backward"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "sum_grad4",
+            "op": "ElementWiseSum"
+        },
+        {
+            "inputs": [
+                "sum_grad4"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus10_backward",
+            "op": "_backward_add"
+        },
+        {
+            "inputs": [
+                "_plus10_backward",
+                "stage3_unit4_relu3",
+                "stage3_unit4_conv3/weight"
+            ],
+            "cost": 524288,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit4_conv3/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit4_conv3/backward",
+                "stage3_unit4_relu3"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit4_relu3/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage3_unit4_relu3/backward",
+                "stage3_unit4_relu2",
+                "stage3_unit4_conv2/weight"
+            ],
+            "cost": 1179648,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit4_conv2/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit4_conv2/backward",
+                "stage3_unit4_relu2"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit4_relu2/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage3_unit4_relu2/backward",
+                "stage3_unit4_relu1",
+                "stage3_unit4_conv1/weight"
+            ],
+            "cost": 524288,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit4_conv1/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit4_conv1/backward",
+                "stage3_unit4_relu1"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit4_relu1/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "_plus10_backward",
+                "stage3_unit4_relu1/backward"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "sum_grad5",
+            "op": "ElementWiseSum"
+        },
+        {
+            "inputs": [
+                "sum_grad5"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus9_backward",
+            "op": "_backward_add"
+        },
+        {
+            "inputs": [
+                "_plus9_backward",
+                "stage3_unit3_relu3",
+                "stage3_unit3_conv3/weight"
+            ],
+            "cost": 524288,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit3_conv3/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit3_conv3/backward",
+                "stage3_unit3_relu3"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit3_relu3/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage3_unit3_relu3/backward",
+                "stage3_unit3_relu2",
+                "stage3_unit3_conv2/weight"
+            ],
+            "cost": 1179648,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit3_conv2/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit3_conv2/backward",
+                "stage3_unit3_relu2"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit3_relu2/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage3_unit3_relu2/backward",
+                "stage3_unit3_relu1",
+                "stage3_unit3_conv1/weight"
+            ],
+            "cost": 524288,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit3_conv1/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit3_conv1/backward",
+                "stage3_unit3_relu1"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit3_relu1/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "_plus9_backward",
+                "stage3_unit3_relu1/backward"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "sum_grad6",
+            "op": "ElementWiseSum"
+        },
+        {
+            "inputs": [
+                "sum_grad6"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus8_backward",
+            "op": "_backward_add"
+        },
+        {
+            "inputs": [
+                "_plus8_backward",
+                "stage3_unit2_relu3",
+                "stage3_unit2_conv3/weight"
+            ],
+            "cost": 524288,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit2_conv3/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit2_conv3/backward",
+                "stage3_unit2_relu3"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit2_relu3/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage3_unit2_relu3/backward",
+                "stage3_unit2_relu2",
+                "stage3_unit2_conv2/weight"
+            ],
+            "cost": 1179648,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit2_conv2/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit2_conv2/backward",
+                "stage3_unit2_relu2"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit2_relu2/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage3_unit2_relu2/backward",
+                "stage3_unit2_relu1",
+                "stage3_unit2_conv1/weight"
+            ],
+            "cost": 524288,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit2_conv1/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit2_conv1/backward",
+                "stage3_unit2_relu1"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit2_relu1/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "_plus8_backward",
+                "stage3_unit2_relu1/backward"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "sum_grad7",
+            "op": "ElementWiseSum"
+        },
+        {
+            "inputs": [
+                "sum_grad7"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus7_backward",
+            "op": "_backward_add"
+        },
+        {
+            "inputs": [
+                "_plus7_backward",
+                "stage3_unit1_relu1",
+                "stage3_unit1_sc/weight"
+            ],
+            "cost": 1048576,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit1_sc/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "_plus7_backward",
+                "stage3_unit1_relu3",
+                "stage3_unit1_conv3/weight"
+            ],
+            "cost": 524288,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit1_conv3/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit1_conv3/backward",
+                "stage3_unit1_relu3"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit1_relu3/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage3_unit1_relu3/backward",
+                "stage3_unit1_relu2",
+                "stage3_unit1_conv2/weight"
+            ],
+            "cost": 1179648,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit1_conv2/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit1_conv2/backward",
+                "stage3_unit1_relu2"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit1_relu2/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage3_unit1_relu2/backward",
+                "stage3_unit1_relu1",
+                "stage3_unit1_conv1/weight"
+            ],
+            "cost": 262144,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit1_conv1/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage3_unit1_sc/backward",
+                "stage3_unit1_conv1/backward"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "sum_grad8",
+            "op": "ElementWiseSum"
+        },
+        {
+            "inputs": [
+                "sum_grad8",
+                "stage3_unit1_relu1"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage3_unit1_relu1/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage3_unit1_relu1/backward"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus6_backward",
+            "op": "_backward_add"
+        },
+        {
+            "inputs": [
+                "_plus6_backward",
+                "stage2_unit4_relu3",
+                "stage2_unit4_conv3/weight"
+            ],
+            "cost": 131072,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit4_conv3/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage2_unit4_conv3/backward",
+                "stage2_unit4_relu3"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit4_relu3/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage2_unit4_relu3/backward",
+                "stage2_unit4_relu2",
+                "stage2_unit4_conv2/weight"
+            ],
+            "cost": 294912,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit4_conv2/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage2_unit4_conv2/backward",
+                "stage2_unit4_relu2"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit4_relu2/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage2_unit4_relu2/backward",
+                "stage2_unit4_relu1",
+                "stage2_unit4_conv1/weight"
+            ],
+            "cost": 131072,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit4_conv1/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage2_unit4_conv1/backward",
+                "stage2_unit4_relu1"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit4_relu1/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "_plus6_backward",
+                "stage2_unit4_relu1/backward"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "sum_grad9",
+            "op": "ElementWiseSum"
+        },
+        {
+            "inputs": [
+                "sum_grad9"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus5_backward",
+            "op": "_backward_add"
+        },
+        {
+            "inputs": [
+                "_plus5_backward",
+                "stage2_unit3_relu3",
+                "stage2_unit3_conv3/weight"
+            ],
+            "cost": 131072,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit3_conv3/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage2_unit3_conv3/backward",
+                "stage2_unit3_relu3"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit3_relu3/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage2_unit3_relu3/backward",
+                "stage2_unit3_relu2",
+                "stage2_unit3_conv2/weight"
+            ],
+            "cost": 294912,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit3_conv2/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage2_unit3_conv2/backward",
+                "stage2_unit3_relu2"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit3_relu2/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage2_unit3_relu2/backward",
+                "stage2_unit3_relu1",
+                "stage2_unit3_conv1/weight"
+            ],
+            "cost": 131072,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit3_conv1/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage2_unit3_conv1/backward",
+                "stage2_unit3_relu1"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit3_relu1/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "_plus5_backward",
+                "stage2_unit3_relu1/backward"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "sum_grad10",
+            "op": "ElementWiseSum"
+        },
+        {
+            "inputs": [
+                "sum_grad10"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus4_backward",
+            "op": "_backward_add"
+        },
+        {
+            "inputs": [
+                "_plus4_backward",
+                "stage2_unit2_relu3",
+                "stage2_unit2_conv3/weight"
+            ],
+            "cost": 131072,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit2_conv3/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage2_unit2_conv3/backward",
+                "stage2_unit2_relu3"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit2_relu3/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage2_unit2_relu3/backward",
+                "stage2_unit2_relu2",
+                "stage2_unit2_conv2/weight"
+            ],
+            "cost": 294912,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit2_conv2/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage2_unit2_conv2/backward",
+                "stage2_unit2_relu2"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit2_relu2/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage2_unit2_relu2/backward",
+                "stage2_unit2_relu1",
+                "stage2_unit2_conv1/weight"
+            ],
+            "cost": 131072,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit2_conv1/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage2_unit2_conv1/backward",
+                "stage2_unit2_relu1"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit2_relu1/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "_plus4_backward",
+                "stage2_unit2_relu1/backward"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "sum_grad11",
+            "op": "ElementWiseSum"
+        },
+        {
+            "inputs": [
+                "sum_grad11"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus3_backward",
+            "op": "_backward_add"
+        },
+        {
+            "inputs": [
+                "_plus3_backward",
+                "stage2_unit1_relu1",
+                "stage2_unit1_sc/weight"
+            ],
+            "cost": 262144,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit1_sc/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "_plus3_backward",
+                "stage2_unit1_relu3",
+                "stage2_unit1_conv3/weight"
+            ],
+            "cost": 131072,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit1_conv3/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage2_unit1_conv3/backward",
+                "stage2_unit1_relu3"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit1_relu3/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage2_unit1_relu3/backward",
+                "stage2_unit1_relu2",
+                "stage2_unit1_conv2/weight"
+            ],
+            "cost": 294912,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit1_conv2/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage2_unit1_conv2/backward",
+                "stage2_unit1_relu2"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit1_relu2/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage2_unit1_relu2/backward",
+                "stage2_unit1_relu1",
+                "stage2_unit1_conv1/weight"
+            ],
+            "cost": 65536,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit1_conv1/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage2_unit1_sc/backward",
+                "stage2_unit1_conv1/backward"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "sum_grad12",
+            "op": "ElementWiseSum"
+        },
+        {
+            "inputs": [
+                "sum_grad12",
+                "stage2_unit1_relu1"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage2_unit1_relu1/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage2_unit1_relu1/backward"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus2_backward",
+            "op": "_backward_add"
+        },
+        {
+            "inputs": [
+                "_plus2_backward",
+                "stage1_unit3_relu3",
+                "stage1_unit3_conv3/weight"
+            ],
+            "cost": 32768,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit3_conv3/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage1_unit3_conv3/backward",
+                "stage1_unit3_relu3"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit3_relu3/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage1_unit3_relu3/backward",
+                "stage1_unit3_relu2",
+                "stage1_unit3_conv2/weight"
+            ],
+            "cost": 73728,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit3_conv2/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage1_unit3_conv2/backward",
+                "stage1_unit3_relu2"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit3_relu2/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage1_unit3_relu2/backward",
+                "stage1_unit3_relu1",
+                "stage1_unit3_conv1/weight"
+            ],
+            "cost": 32768,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit3_conv1/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage1_unit3_conv1/backward",
+                "stage1_unit3_relu1"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit3_relu1/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "_plus2_backward",
+                "stage1_unit3_relu1/backward"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "sum_grad13",
+            "op": "ElementWiseSum"
+        },
+        {
+            "inputs": [
+                "sum_grad13"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus1_backward",
+            "op": "_backward_add"
+        },
+        {
+            "inputs": [
+                "_plus1_backward",
+                "stage1_unit2_relu3",
+                "stage1_unit2_conv3/weight"
+            ],
+            "cost": 32768,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit2_conv3/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage1_unit2_conv3/backward",
+                "stage1_unit2_relu3"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit2_relu3/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage1_unit2_relu3/backward",
+                "stage1_unit2_relu2",
+                "stage1_unit2_conv2/weight"
+            ],
+            "cost": 73728,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit2_conv2/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage1_unit2_conv2/backward",
+                "stage1_unit2_relu2"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit2_relu2/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage1_unit2_relu2/backward",
+                "stage1_unit2_relu1",
+                "stage1_unit2_conv1/weight"
+            ],
+            "cost": 32768,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit2_conv1/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage1_unit2_conv1/backward",
+                "stage1_unit2_relu1"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit2_relu1/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "_plus1_backward",
+                "stage1_unit2_relu1/backward"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "sum_grad14",
+            "op": "ElementWiseSum"
+        },
+        {
+            "inputs": [
+                "sum_grad14"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "_plus0_backward",
+            "op": "_backward_add"
+        },
+        {
+            "inputs": [
+                "_plus0_backward",
+                "stage1_unit1_relu1",
+                "stage1_unit1_sc/weight"
+            ],
+            "cost": 32768,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit1_sc/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "_plus0_backward",
+                "stage1_unit1_relu3",
+                "stage1_unit1_conv3/weight"
+            ],
+            "cost": 32768,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit1_conv3/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage1_unit1_conv3/backward",
+                "stage1_unit1_relu3"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit1_relu3/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage1_unit1_relu3/backward",
+                "stage1_unit1_relu2",
+                "stage1_unit1_conv2/weight"
+            ],
+            "cost": 73728,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit1_conv2/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage1_unit1_conv2/backward",
+                "stage1_unit1_relu2"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit1_relu2/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage1_unit1_relu2/backward",
+                "stage1_unit1_relu1",
+                "stage1_unit1_conv1/weight"
+            ],
+            "cost": 8192,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit1_conv1/backward",
+            "op": "_backward_Convolution"
+        },
+        {
+            "inputs": [
+                "stage1_unit1_sc/backward",
+                "stage1_unit1_conv1/backward"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "sum_grad15",
+            "op": "ElementWiseSum"
+        },
+        {
+            "inputs": [
+                "sum_grad15",
+                "stage1_unit1_relu1"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "stage1_unit1_relu1/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "stage1_unit1_relu1/backward",
+                "relu0",
+                "pooling0"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "pooling0/backward",
+            "op": "_backward_Pooling"
+        },
+        {
+            "inputs": [
+                "pooling0/backward",
+                "relu0"
+            ],
+            "cost": 0,
+            "partition": [
+                "R"
+            ],
+            "name": "relu0/backward",
+            "op": "_backward_Activation"
+        },
+        {
+            "inputs": [
+                "relu0/backward",
+                "data",
+                "conv0/weight"
+            ],
+            "cost": 18816,
+            "partition": [
+                "R"
+            ],
+            "name": "conv0/backward",
+            "op": "_backward_Convolution"
+        }
+    ]
+}

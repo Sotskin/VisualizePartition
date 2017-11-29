@@ -3,7 +3,7 @@ import sys
 import json
 from math import pi
 from graph_tool.all import *
-from gi.repository import Gtk, Gdk
+#from gi.repository import Gtk, Gdk
 
 # Read json file.
 if len(sys.argv) <= 1:
@@ -71,22 +71,26 @@ for i in range(0, psize):
         tmp //= 3
     name[ln] = label
 
+#hidden node to represent label_cut_node
+label_cut_node = []
+
 # pre-positions for each node
 init_x = 200
 init_y = 300
-x_h = init_x + 100
+x_h = init_x + 150
 y_h = init_y - 100
-x_m = init_x + 100
+x_m = init_x + 150
 y_m = init_y + 0
-x_l = init_x + 100
+x_l = init_x + 150
 y_l = init_y + 100
-dif = 230
+dif = 250
 flag = True
+sumflag = False
 c = 0 # counter used for label tensor position
 offset = 17 # text offset (vertical)
 
 
-# Add nodes and edges to the graph
+# Read the information of nodes and edges to the graph
 for i in range(0,len(nodes)):
     node = nodes[i]
     indice[node['name']] = i
@@ -104,9 +108,13 @@ for i in range(0,len(nodes)):
         ci += rgb[part]
     color[i] = [r_ran[ci]/rand_range , g_ran[ci]/rand_range , b_ran[ci]/rand_range , alpha]
     
-    # Replica hidden node to print cost
+    # Replica hidden node to print cost, and Cuts
     hidv = g.add_vertex()
     name[hidv] = "Cost = " + str(cost[i])
+    hidv2 = g.add_vertex()
+    name[hidv2] = "Cut = "
+    for part in node['partition']:
+        name[hidv2] = name[hidv2] + part 
     
     # Calculate the position for each node
     # A series of assumptions is made about json file for this to work
@@ -121,36 +129,53 @@ for i in range(0,len(nodes)):
         x_l -= dif
         c += 1
         text_pos[i] = pi/2
-        text_offset[hidv] = [0, offset]
+        text_offset[hidv] = [0, 2*offset]
+        text_offset[hidv2] = [0, offset]
     elif "weight" in name[i]:
         x = x_m
         y = y_m
+        text_offset[hidv2] = [0, offset]
         #x_m += 2*dif
         #text_offset[hidv] = [0, -offset]
         name[hidv] = ""
     elif "data" == name[i]:
         x = init_x
         y = init_y
-        text_pos[i] = 0
+        text_pos[i] = pi
+        text_offset[i] = [0, 0]
+        text_offset[hidv2] = [0, offset]
         #text_offset[hidv] = [0, -offset]
         name[hidv] = ""
     elif "label" in name[i]:
         #x = x_m + (g.num_vertices()-4)/5*2*dif
         y = y_m
         text_pos[i] = 0
+        text_offset[hidv2] = [0, offset]
         #text_offset[hidv] = [0, -offset]
         name[hidv] = ""
+        label_cut_node = hidv2
+    elif "sum" in name[i]:
+        if not sumflag:
+            sumflag = True
+        if flag:
+            x_l = x_h - dif
+            flag = False
+        x = x_l
+        y = y_l + 200
+        text_offset[hidv] = [0, 2*offset]
+        text_offset[hidv2] = [0,offset] 
     else:
         x = x_h
         y = y_h
         x_h += dif
         x_m += dif
         text_pos[i] = 3*pi/2
-        text_offset[hidv] = [0, -offset]
+        text_offset[hidv] = [0, -2*offset]
+        text_offset[hidv2] = [0, -offset]
     pos[i].append(x)
     pos[i].append(y)
 
-    # Replica edge properties
+    # Replica vertex properties
     pos[hidv].append(x)
     pos[hidv].append(y)
     shape[hidv] = shape[i]
@@ -159,6 +184,15 @@ for i in range(0,len(nodes)):
     text_pos[hidv] = text_pos[i]
     cost[hidv] = cost[i]
     
+    pos[hidv2].append(x)
+    pos[hidv2].append(y)
+    shape[hidv2] = shape[i]
+    color[hidv2] = [0,0,0,0]
+    stroke_color[hidv2] = [0,0,0,0]
+    text_pos[hidv2] = text_pos[i]
+    cost[hidv2] = cost[i]
+    
+
 
     # Add edges
     for source in node["inputs"]:
@@ -170,6 +204,7 @@ for i in range(0,len(nodes)):
     
 # Set x position for "label" node
 pos[0][0] = init_x + 50 + c*dif
+pos[label_cut_node][0] = pos[0][0]
 
 graph_draw(g, pos = pos,
         fit_view = False,
@@ -189,7 +224,7 @@ graph_draw(g, pos = pos,
 
         edge_pen_width = 3,
         bg_color = [1,1,1,1],
-        output_size = (init_x*2 + 100 + c*dif, init_y * 2),
+        output_size = (init_x*2 + 100 + c*dif, init_y * 2 + (150 if sumflag else 0)  ),
         output = outputname
         )
 
